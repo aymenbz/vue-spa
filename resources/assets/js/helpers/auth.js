@@ -5,7 +5,8 @@ export function login(credintials) {
         res(response.data);
       })
       .catch((err) => {
-        rej('wrogn email or password');
+        rej('wrong email or password');
+        console.log(err)
       })
   })
 }
