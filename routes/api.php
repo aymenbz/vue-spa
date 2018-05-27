@@ -27,7 +27,7 @@ Route::group([
 
 Route::group([
 
-    'middleware' => 'jwt.auth'
+    'middleware' => 'api'
 ], function () {
 
     Route::get('customers', 'CustomersController@all');
