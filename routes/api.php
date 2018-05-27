@@ -24,3 +24,13 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
 });
+
+Route::group([
+
+    'middleware' => 'jwt.auth'
+], function () {
+
+    Route::get('customers', 'CustomersController@all');
+    Route::get('customer/{id}', 'CustomersController@get');
+    Route::post('customers/new', 'CustomersController@new');
+});
