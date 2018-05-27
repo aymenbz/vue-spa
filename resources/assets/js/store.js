@@ -49,6 +49,10 @@ export default {
             state.isLoggedIn = false;
             state.currentUser = null;
         },
+        signup(state) {
+            state.loading = true;
+            state.auth_error = null;
+        },
         updateCustomers(state, payload) {
             state.customers = payload;
         }
@@ -56,6 +60,9 @@ export default {
     actions: {
         login(context) {
             context.commit("login");
+        },
+        signup(context) {
+            context.commit("signup");
         },
         getCustomers(context) {
             axios.get('/api/customers')

@@ -10,6 +10,18 @@ export function login(credintials) {
       })
   })
 }
+export function signup(credintials) {
+  return new Promise((res, rej) => {
+    axios.post('/api/register', credintials)
+      .then((response) => {
+        res(response.data);
+      })
+      .catch((err) => {
+        rej(err.errors);
+        console.log(err.errors)
+      })
+  })
+}
 
 export function getLocalUser() {
   const userStr = localStorage.getItem("user");

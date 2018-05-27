@@ -7,7 +7,9 @@ export function initialize(store, router) {
             next('/login');
         } else if(to.path == '/login' && currentUser) {
             next('/');
-        } else {
+        } else if(to.path == '/register' && currentUser) {
+            next('/');
+        }else {
             next();
         }
     });
@@ -18,10 +20,8 @@ export function initialize(store, router) {
             router.push('/login');
         }
 
-        return Promise.reject(error);
+        return async(error);
     });
-    if(store.getters.currentUser != null) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${store.getters.currentUser.token}`
 
-    }
+   
 }
